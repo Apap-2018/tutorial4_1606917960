@@ -6,9 +6,22 @@
 </head>
 
 <body>
-	<h3 th:text="'Pilot License Number : ' + '${pilot.licenseNumber}"></h3>
+	<h1>Data Pilot</h1>
+	<h3 th:text="'Pilot License Number : ' + ${pilot.licenseNumber}"></h3>
 	<h3 th:text="'Name : ' + ${pilot.name}"></h3>
 	<h3 th:text="'Fly Hour : ' + ${pilot.flyHour}"></h3>
-	<td><a th:href="@{/flight/add}">Add Flight</a></td>
+	<br>
+	
+	<h1>Daftar Penerbangan</h1>
+	<div th:each="flight : ${flightList}">
+		<h3 th:text="'Flight Number : ' + ${flight.flightNumber}"></h3>
+		<h3 th:text="'Origin : ' + ${flight.origin}"></h3>
+		<h3 th:text="'Destination : ' + ${flight.destination}"></h3>
+		<h3 th:text="'Time : ' +${flight.time}"></h3>
+	</div>
+	
+	<td><a th:href="@{'/flight/add/' + ${pilot.licenseNumber}}">Add Flight</a></td>
+	
+	
 </body>
 </html>

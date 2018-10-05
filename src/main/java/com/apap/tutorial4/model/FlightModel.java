@@ -40,7 +40,7 @@ public class FlightModel implements Serializable{
 	@NotNull
 	@Size(max=50)
 	@Column(name="destination", nullable=false)
-	private int destination;
+	private String destination;
 	
 	@NotNull
 	@Column(name="time")
@@ -76,11 +76,11 @@ public class FlightModel implements Serializable{
 		this.origin = origin;
 	}
 
-	public int getDestination() {
+	public String getDestination() {
 		return destination;
 	}
 
-	public void setDestination(int destination) {
+	public void setDestination(String destination) {
 		this.destination = destination;
 	}
 
