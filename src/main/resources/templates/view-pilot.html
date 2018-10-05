@@ -22,9 +22,9 @@
 		<h3 th:text="'Origin : ' + ${flight.origin}"></h3>
 		<h3 th:text="'Destination : ' + ${flight.destination}"></h3>
 		<h3 th:text="'Time : ' +${flight.time}"></h3>
-		<a th:href="@{'/flight/delete/'+ ${flight.Id}}">Delete Flight</a>
+		<a th:href="@{'/flight/delete/'+ ${flight.id}}">Delete Flight</a>
 		<br>
-		<a th:href="@{'/flight/update/'+ ${flight.Id}}">Update Flight</a>
+		<a th:href="@{'/flight/update/'+ ${flight.id}}">Update Flight</a>
 		<h3 th:text="'----------------------------------------'"></h3>
 		
 		
