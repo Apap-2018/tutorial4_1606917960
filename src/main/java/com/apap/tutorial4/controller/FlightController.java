@@ -38,12 +38,7 @@ public class FlightController {
 		flightService.addFlight(flight);
 		return "add";
 	}
-	
-	@RequestMapping(value="/flight/update/{Id}", method=RequestMethod.GET)
-	private String updateFlight() {
-		return "update-flight";
-	}
-	
+		
 	@RequestMapping(value="/flight/delete/{id}", method = RequestMethod.GET)
 	private String deleteFlight(@PathVariable(value="id") String id) {
 		FlightModel flight = flightService.getFlightDetailById(Long.parseLong(id));

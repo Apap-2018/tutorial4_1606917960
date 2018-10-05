@@ -66,8 +66,8 @@ public class PilotController {
 	}
 	
 	@RequestMapping(value="/pilot/update", method = RequestMethod.POST)
-	private String updatePilotSubmit(@ModelAttribute PilotModel newpilot) {
-		pilotService.updatePilot(newpilot);
+	private String updatePilotSubmit(@ModelAttribute PilotModel pilot) {
+		pilotService.updatePilot(pilot);
 		return "update";
 	}
 		
