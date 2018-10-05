@@ -1,11 +1,13 @@
 package com.apap.tutorial4.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,4 +50,25 @@ public class PilotController {
 		return "view-pilot";
 	}
 	
+	@RequestMapping(value="/pilot/delete/{licenseNumber}", method = RequestMethod.GET)
+	private String deletePilot(@PathVariable(value="licenseNumber") String licenseNumber) {
+		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+		pilotService.deletePilot(pilot);
+		return "delete";
+	}
+	
+	@RequestMapping(value="/pilot/update/{licenseNumber}", method = RequestMethod.GET)
+	private String updatePilot(@PathVariable(value="licenseNumber") String licenseNumber, Model model) {
+		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+		model.addAttribute("pilot", pilot);
+		model.addAttribute("newPilot", new PilotModel());
+		return "update-pilot";
+	}
+	
+	@RequestMapping(value="/pilot/update", method = RequestMethod.POST)
+	private String updatePilotSubmit(@ModelAttribute PilotModel newpilot) {
+		pilotService.updatePilot(newpilot);
+		return "update";
+	}
+		
 }

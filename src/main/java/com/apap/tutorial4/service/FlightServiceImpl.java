@@ -20,9 +20,25 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
-	public void deleteFlight(long Id) {
-		// TODO Auto-generated method stub
-		flightDb.deleteById(Id);
+	public void deleteFlight(FlightModel flight) {
+		flightDb.delete(flight);	
+	}
+
+	@Override
+	public void updateFlight(FlightModel flight) {
+		FlightModel oldFlight = this.getFlightDetailById(flight.getId());
+		oldFlight.setFlightNumber(flight.getFlightNumber());
+		oldFlight.setDestination(flight.getDestination());
+		oldFlight.setOrigin(flight.getOrigin());
+		oldFlight.setTime(flight.getTime());
 		
 	}
+
+	@Override
+	public FlightModel getFlightDetailById(long Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 }
